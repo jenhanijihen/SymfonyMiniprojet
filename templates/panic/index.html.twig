@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panic index{% endblock %}
+
+{% block body %}
+    <h1>Panic index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Quantity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for panic in panics %}
+            <tr>
+{#                <td>{{ panic.id }}</td>#}
+                <td>{{ panic.quantity }}</td>
+                <td>
+                    <a href="{{ path('panic_show', {'id': panic.id}) }}" class="btn btn-sm btn-dark">show</a>
+                    <a href="{{ path('panic_edit', {'id': panic.id}) }}" class="btn btn-sm btn-warning">edit</a>
+                    {{ include('panic/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('panic_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Panic{% endblock %}
+
+{% block body %}
+    <h1>Create new Panic</h1>
+
+    {{ include('panic/_form.html.twig') }}
+
+    <a href="{{ path('panic_index') }}">back to list</a>
+{% endblock %}

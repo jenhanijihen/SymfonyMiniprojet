@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panic{% endblock %}
+
+{% block body %}
+    <h1>Panic</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ panic.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ panic.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('panic_index') }}">back to list</a>
+
+    <a href="{{ path('panic_edit', {'id': panic.id}) }}">edit</a>
+
+    {{ include('panic/_delete_form.html.twig') }}
+{% endblock %}
